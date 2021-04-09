@@ -3,6 +3,8 @@ import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import Header from './components/Header'
 import TodoItem from './components/TodoItem'
+import TaskModal from './components/TaskModal'
+import Modal from 'react-native-modal'
 
 export default function App() {
   return (
@@ -10,6 +12,7 @@ export default function App() {
       <Header />
       <TodoItem title="클래스101 커리큘럼 만들기" done={true} />
       <TodoItem title="운전면허 도로주행 연수" done={false} />
+      <TaskModal isVisible={false} />
     </SafeAreaView>
   );
 }
