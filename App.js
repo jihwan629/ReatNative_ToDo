@@ -31,11 +31,16 @@ export default class App extends React.Component {
 
         <FlatList
           data={this.state.todos}
-          renderItem={({ item }) => {
+          renderItem={({ item, index }) => {
             return (
               <TodoItem
                 title={item.title}
                 done={item.done}
+                remove={() => {
+                  this.setState({
+                    todos: this.state.todos.filter((_, i) => i !== index)
+                  })
+                }}
               />
             )
           }}
