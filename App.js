@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import Header from './components/Header'
 import TodoItem from './components/TodoItem'
 import TaskModal from './components/TaskModal'
-import Modal from 'react-native-modal'
 
 export default function App() {
   return (
