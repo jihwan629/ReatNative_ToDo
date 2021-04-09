@@ -8,10 +8,12 @@ import Modal from 'react-native-modal'
 
 const TaskModal = ({
     isVisible,
+    hide,
 }) => {
     return (
         <Modal
             isVisible={isVisible}
+            onBackdropPress={hide}
             avoidKeyboard
             style={styles.modal}
         >

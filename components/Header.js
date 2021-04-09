@@ -8,7 +8,9 @@ import {
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
-const Header = () => {
+const Header = ({
+    show,
+}) => {
     return (
         <View style={styles.container}>
 
@@ -18,6 +20,7 @@ const Header = () => {
 
             <TouchableOpacity
                 activeOpacity={0.8}
+                onPress={show}
                 style={styles.button}
             >
                 <Ionicons 
