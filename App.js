@@ -1,19 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import Header from './components/Header'
 import TodoItem from './components/TodoItem'
 import TaskModal from './components/TaskModal'
+import { render } from 'react-dom';
 
-export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Header />
-      <TodoItem title="클래스101 커리큘럼 만들기" done={true} />
-      <TodoItem title="운전면허 도로주행 연수" done={false} />
-      <TaskModal isVisible={false} />
-    </SafeAreaView>
-  );
+export default class App extends React.Component {
+  state = {
+    todos: [{
+      title: '클래스101 커리큘럼 만들기',
+      done: true,
+    },
+    {
+      title: '운전면허 도로주행 연수',
+      done: false,
+    }],
+  }
+
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+
+        <Header />
+
+        <FlatList
+          data={this.state.todos}
+          renderItem={({ item }) => {
+            return (
+              <TodoItem
+                title={item.title}
+                done={item.done}
+              />
+            )
+          }}
+          keyExtractor={(_, index) => {
+            return `${index}`
+          }}
+        />
+        
+        <TaskModal isVisible={false} />
+
+      </SafeAreaView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
